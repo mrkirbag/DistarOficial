@@ -1,0 +1,283 @@
+@import url('https://fonts.cdnfonts.com/css/gilroy-bold');
+
+*, *::before, *::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --color_principal: #1E1C3B;
+    --color_secundario: #D4D4D4;
+    --fuente: 'Gilroy-Heavy', sans-serif;;
+}
+
+
+body{
+    background-color: var(--color_secundario);
+}
+
+/*HEADER*/
+
+header{
+    background-color: var(--color_principal);
+    height: 15dvh;
+    width: 100%;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+}
+
+header .logo_container{
+    height: 100%;
+    width: 50%;
+    position: absolute;
+    top: 50%;
+    z-index: 1000;
+
+    & img{
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+}
+
+header .progress_bar{
+    height: 10px;
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    z-index: 100;
+
+    & .progress{
+        width: 0%;
+        height: 100%;
+        background-color: #2a4090;
+    }
+}
+
+/*REDES SOCIALES*/
+
+main {
+    padding-top: 25dvh;
+    height: 80dvh;
+    margin: 0 2rem;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.instagram {
+    grid-column-start: 1;
+    grid-row-start: 2;
+}
+
+.facebook {
+    grid-column-start: 2;
+    grid-row-start: 3;
+}
+
+.catalogo {
+    grid-column-start: 2;
+    grid-row-start: 4;
+}
+
+.img-cont1 {
+    grid-row: span 2 / span 2;
+    grid-column-start: 2;
+    grid-row-start: 1;
+
+    & img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+    }
+}
+
+.img-cont2 {
+    grid-row: span 2 / span 2;
+    grid-column-start: 1;
+    grid-row-start: 3;
+
+    & img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+}
+
+.button {
+    background-color: var(--color_principal);
+    border-radius: 10px;
+    height: auto;
+
+    & a{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        color: var(--color_secundario);
+        font-size: 1.2rem;
+        font-family: var(--fuente);
+        gap: 2px;
+        text-decoration: none;
+        padding: 10px;
+        font-size: 20px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        & img{
+            width: 18px;
+            height: 18px;  
+        }
+    }
+
+    &:hover, :active{
+        opacity: 0.85;
+    }
+}
+
+/* OPINIONES */
+
+section {
+    margin-top: 7dvh;
+    height: auto;
+    background-color: var(--color_principal);
+    color: var(--color_secundario);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carrusel {
+    padding: 10px;
+    overflow: hidden;
+    width: 350px;
+}
+
+.carrusel-wrap {
+    padding: 10px;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 350px;
+    justify-items: stretch;
+    align-items: center;
+    animation: slide 20s linear infinite;
+
+    &:hover{
+        animation-play-state: paused;
+        cursor: pointer;
+    }
+}
+
+.carrusel-wrap .box-item {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+
+    & img{
+        width: 100px;
+        border-radius: 50%;
+        padding-bottom: 25px;
+    }
+
+    & h3 {
+        font-size: 1.5rem;
+        font-family: 'Hanken Grotesk';
+        font-weight: bold;
+        text-transform: uppercase;
+        padding-bottom: 5px;
+    }
+
+    & p{
+        font-size: 1rem;
+        font-weight: 400;
+        font-family: 'Hanken Grotesk';
+        text-align: center;
+        padding: 0 5px;
+        text-wrap: pretty;
+    }
+}
+
+@keyframes slide {
+    to {
+        translate: calc(-4 * 350px);
+    }
+}
+
+/* MAPS */
+
+.iframe-map{
+    margin-top: 7dvh;
+    width: 100%;
+    height: 350px;
+    background-color: var(--color_principal);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    & iframe{
+        width: 90%;
+        height: 80%;
+        padding: 10px 0;
+        border: none;
+    }
+}
+
+/* FOOTER */
+
+footer{
+    padding: 20px;
+    margin-top: 7dvh;
+    height: 10dvh;
+    background-color: var(--color_principal);
+    color: var(--color_secundario);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    & p{
+        font-size: 1rem;
+        text-align: center;
+        font-family: 'Hanken Grotesk';
+    }
+}
+
+
+/* RESPONSIVE DESIGN */
+
+@media screen and (min-width: 700px){
+
+    main{
+        width: 45%;
+        height: auto;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (min-width: 1000px){
+
+    main{
+        width: 25%;
+        height: auto;
+        margin: 0 auto;
+    }
+}
